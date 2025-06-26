@@ -15,9 +15,10 @@ const CHUNK_SIZE_BYTES: usize = 3 * 1024 * 1024; // 3MB Chunks
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    //let server_addr = "http://127.0.0.1:50051";
-    let server_addr = "http://0.0.0.0:50051";
+    let server_addr = "http://127.0.0.1:50051";
+    //let server_addr = "http://0.0.0.0:50051";
     let file_path = "receipt_output.json";
+    //let file_path = "receipt_output.bin";
 
     let mut client = ReceiptVerifierServiceClient::connect(server_addr).await?;
     println!("Verbunden mit gRPC Server auf {}", server_addr);
